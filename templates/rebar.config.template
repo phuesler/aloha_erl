@@ -1,0 +1,16 @@
+% Compiler Options for rebar
+{erl_opts, [
+    {src_dirs, ["src", "test"]},
+    debug_info,
+    {parse_transform, lager_transform}
+]}.
+
+% Dependencies
+{deps, [
+    {elli, ".*", {git, "git://github.com/knutin/elli.git", "HEAD"}},
+    {etest, ".*", {git, "git://github.com/wooga/etest.git", "HEAD"}},
+    {etest_http, ".*", {git, "git://github.com/wooga/etest_http.git", "HEAD"}}
+]}.
+
+% Which files to cleanup when rebar clean is executed.
+{clean_files, ["ebin/*.beam"]}.
