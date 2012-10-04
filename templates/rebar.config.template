@@ -1,8 +1,7 @@
 % Compiler Options for rebar
 {erl_opts, [
     {src_dirs, ["src", "test"]},
-    debug_info,
-    {parse_transform, lager_transform}
+    debug_info
 ]}.
 
 % Dependencies
