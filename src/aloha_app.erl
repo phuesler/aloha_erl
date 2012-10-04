@@ -13,9 +13,8 @@ start() ->
     application:start(aloha, permanent).
 
 start(_StartType, _StartArgs) ->
-	elli:start_link([{callback, aloha_api}, {port, 3000}]),
+    elli:start_link([{callback, aloha_api}, {port, 3000}]),
     aloha_sup:start_link().
-	
 
 stop(_State) ->
     ok.
