@@ -18,7 +18,9 @@ handle('GET',[<<"aloha">>], _Req) ->
     {ok, [], <<"kekahi mau pipi">>};
 
 handle('GET',[<<"log">>], _Req) ->
-    lager:error("some message"),
+    lager:debug("aloha"),
+    lager:warning("freak set"),
+    lager:error("wipe out"),
     {ok, [], <<"log">>};
 
 handle(_, _, _Req) ->
