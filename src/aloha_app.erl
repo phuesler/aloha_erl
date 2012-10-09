@@ -17,8 +17,18 @@ start(_StartType, _StartArgs) ->
     ok = application:start(syntax_tools),
     ok = application:start(lager),
     reloader:start(),
-    elli:start_link([{callback, aloha_api}, {port, 3000}]),
+    DefaultPort = application:get_env(aloha, worker_port),
+    Port = get_port(DefaultPort),
+    elli:start_link([{callback, aloha_api}, {port, Port}]),
     aloha_sup:start_link().
 
 stop(_State) ->
     ok.
+
+
+get_port(Default) ->
+    Key = "PORT",
+    case os:getenv(Key) of
+        false -> Default;
+        Val -> list_to_integer(Val)
+    end.
