@@ -22,6 +22,9 @@ handle('GET',[<<"log">>], _Req) ->
     lager:error("wipe out"),
     {ok, [], <<"log">>};
 
+handle('GET', _, _Req) ->
+    {302, [{<<"Location">>, <<"https://github.com/phuesler/aloha_erl">>}], <<>>};
+
 handle(_, _, _Req) ->
     {404, [], <<"wipe out!">>}.
 
