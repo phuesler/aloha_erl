@@ -16,6 +16,7 @@ start(_StartType, _StartArgs) ->
     ok = application:start(compiler),
     ok = application:start(syntax_tools),
     ok = application:start(lager),
+    reloader:start(),
     elli:start_link([{callback, aloha_api}, {port, 3000}]),
     aloha_sup:start_link().
 
