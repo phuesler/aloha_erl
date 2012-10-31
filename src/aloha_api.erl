@@ -14,6 +14,7 @@ handle(Req, _Args) ->
 
 %% Route METHOD & PATH to the appropriate clause
 handle('GET',[<<"aloha">>], _Req) ->
+    lager:debug("what is wrong"),
     {ok, [], <<"kekahi mau pipi">>};
 
 handle('GET',[<<"log">>], _Req) ->
